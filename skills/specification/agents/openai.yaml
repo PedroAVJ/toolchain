@@ -1,4 +1,4 @@
 interface:
   display_name: "Requirements Specification"
-  short_description: "Specify through product, system, and data views"
-  default_prompt: "Use $specification to turn these settled requirements into the product specification through Product Design and any applicable architecture or conceptual entity-relationship views."
+  short_description: "Specify product and software behavior with useful views"
+  default_prompt: "Use $specification to develop the applicable product or software brief and any consequential design views."

@@ -1,14 +1,20 @@
 ---
 name: elicitation
-description: Use when stakeholder evidence must be grounded from WhatsApp, Gmail, supplied Zoom artifacts, Apple call recordings in Notes, Voice Memos, or another exact source before requirements analysis.
+description: Develop grounded requirements knowledge through iterative conversation, documents, observations, current software, and technical evidence while composing the capability that owns each source.
 ---
 
 # Requirements Elicitation
 
-Establish the complete, attributable evidence envelope that requirements work
-will interpret. Elicitation composes source-owning plugins; it does not
-reimplement their storage, synchronization, transcription, cursor, retry, or
-media-handling behavior.
+Develop the domain knowledge and intended behavior expressed in
+`toolchain:brief`. Elicitation is conversational and iterative: ask consequential
+questions, incorporate answers, and revise what is known. Use the host's
+request-input capability when it is available and helpful, or ordinary dialogue.
+No host planning-mode toggle or external author is required.
+
+Read the [requirements-library contract](../brief/references/requirements-library.md)
+for initiative, capability, system, evidence, revision, and review boundaries.
+Compose source-owning plugins for exact evidence; do not reimplement their
+storage, synchronization, transcription, cursor, retry, or media handling.
 
 ## Source Routing
 
@@ -27,12 +33,12 @@ A Zoom notification or invitation is not the recording, transcript, or chat
 artifact. Resolve the exact supplied artifact and preserve its provenance
 instead of treating a filename or notification as the meeting evidence.
 
-## Evidence-Ready Contract
+## Ground the relevant evidence
 
-Before handing evidence to analysis, establish:
+For each source used to support a material interpretation, establish:
 
 - the exact source and its stable identifier or canonical pointer;
-- the complete relevant conversation, recording, transcript, or document;
+- the complete relevant bounded conversation, recording, transcript, or document;
 - the date and known participants or speakers;
 - transcript and media provenance, including attribution, truncation, noise,
   missing artifacts, or other material limitations; and
@@ -45,17 +51,30 @@ artifact, speaker identity, time boundary, or destination remains unclear, ask
 the smallest useful question instead of guessing.
 
 The source plugin retains ownership of its cursor, claim, retry, resolution,
-and canonical media. When a destination repository has an evidence convention,
-follow its `AGENTS.md` and store only durable pointers or artifacts allowed by
-that repository. Never modify or delete app-managed source data.
+and canonical media. Follow destination repository instructions for durable
+pointers and internal authored records. A repository evidence convention does
+not authorize copying original elicitation material into the requirements
+library. Original migration or duplication requires its own explicit scope.
+Never modify or delete app-managed source data.
 
-## Handoff
+## Draft and iterate
 
-Return a concise evidence envelope with source pointers and provenance limits.
-Run `toolchain:analysis` only when the current request includes
-understanding requirements or action items; elicitation alone does not invent
-them.
+Conversations, observations, current software, and technical evidence are also
+valid inputs. Distinguish observed behavior from intended behavior. Retain
+meaningful feedback and adoption decisions without inventing stakeholder evidence.
 
-Do not create issues, tasks, plans, reminders, messages, code, or deployments
-from elicited evidence without a separate request. Never send or reply to a
+Draft supported clauses through `toolchain:brief` while material open meaning
+remains beside the affected clause. Do not stall all drafting until unrelated
+unknowns are closed. Use `toolchain:analysis` to resolve implications, conflicts,
+and one-time obligations when those are within the current request. Incorporate
+settled corrections and show the revised brief normally.
+
+For source-only requests, return a concise evidence envelope with pointers and
+provenance limits without inventing requirements. A source registry stores only
+references; original evidence remains with its source owner. Ground clauses
+during drafting without a mandatory per-clause source map or visible citations.
+
+Elicitation alone does not authorize issues, tasks, implementation plans,
+reminders, outbound messages, code, or deployment. Continue work already included
+in the user's request without asking for redundant authorization. Never send or reply to a
 source conversation during elicitation.

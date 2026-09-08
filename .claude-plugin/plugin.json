@@ -1,7 +1,7 @@
 {
   "name": "toolchain",
-  "version": "0.4.8",
-  "description": "Turn grounded evidence into requirements and business-facing PRDs while enforcing target-surface delivery verification, production invariants, resource hygiene, and isolated repository work.",
+  "version": "0.5.0",
+  "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "author": {
     "name": "PedroAVJ",
     "url": "https://github.com/PedroAVJ"
@@ -24,7 +24,10 @@
     "observability",
     "ephemeral-clones",
     "repository-safety",
-    "resource-hygiene"
+    "resource-hygiene",
+    "brief",
+    "requirements-library",
+    "stakeholder-review"
   ],
   "skills": "./skills/"
 }

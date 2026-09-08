@@ -1,0 +1,6 @@
+interface:
+  display_name: "Brief"
+  short_description: "Author and revise clear natural-language briefs"
+  default_prompt: "Use $brief to author or revise this material with a meaningful title, atomic ordered claims, and visible explanatory glosses."
+policy:
+  allow_implicit_invocation: true

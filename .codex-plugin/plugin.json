@@ -1,7 +1,7 @@
 {
   "name": "toolchain",
-  "version": "0.4.8",
-  "description": "Turn grounded evidence into requirements and business-facing PRDs while enforcing target-surface delivery verification, production invariants, resource hygiene, and isolated repository work.",
+  "version": "0.5.0",
+  "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "author": {
     "name": "PedroAVJ",
     "url": "https://github.com/PedroAVJ"
@@ -24,13 +24,16 @@
     "observability",
     "ephemeral-clones",
     "repository-safety",
-    "resource-hygiene"
+    "resource-hygiene",
+    "brief",
+    "requirements-library",
+    "stakeholder-review"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Toolchain",
-    "shortDescription": "Requirements, PRDs, delivery gates, and safe repository work",
-    "longDescription": "Toolchain composes source-owning plugins to ground stakeholder evidence, analyzes it into Requirements and Action Items, creates six-section business-facing Product Requirements Documents, produces approval-gated specifications and validation agendas, owns storage and process cleanup eligibility, and applies the user's standing target-surface delivery gate plus Sentry Logs observability invariant to separately authorized production work. It also scopes repository writes, disposable artifacts, and task-spawned processes to removable remote-backed clones. These constraints never authorize implementation, deletion, process interruption, or deployment by themselves.",
+    "shortDescription": "Authored briefs, requirements agreement, and delivery gates",
+    "longDescription": "Toolchain authors natural-language briefs with consistent style and visible explanations, develops requirements through iterative elicitation, and keeps business initiatives, product capabilities, software systems, and implementation distinct. It supports internal revisions, dependency review, and evidenced stakeholder sign-off while preserving source ownership. Its engineering, delivery, resource, and repository constraints apply to separately authorized work.",
     "developerName": "PedroAVJ",
     "category": "Developer Tools",
     "capabilities": [
@@ -39,10 +42,11 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Elicit requirements evidence from this source",
-      "Analyze this evidence into Requirements and Action Items",
-      "Create a six-section business-facing Product Requirements Document",
-      "Turn these requirements into a specification or validation agenda",
+      "Author or revise this requirements brief",
+      "Elicit and clarify the domain knowledge behind this brief",
+      "Analyze this evidence into requirements and separate action items",
+      "Develop the product or software requirements for this capability",
+      "Prepare stakeholder review and reconcile the affected sign-offs",
       "Verify every changed path through its real target-surface entry point before shipping",
       "Enforce the Sentry observability invariant for this production change",
       "Identify only legitimate storage or process cleanup candidates",

@@ -1,4 +1,4 @@
 interface:
   display_name: "Product Requirements Document"
-  short_description: "Create a lean business-facing PRD"
-  default_prompt: "Use $prd to turn these grounded requirements into the six-section business-facing Product Requirements Document."
+  short_description: "Develop the product agreement as a clear brief"
+  default_prompt: "Use $prd to turn these grounded requirements into a product brief, or preserve the explicitly requested formal PRD."

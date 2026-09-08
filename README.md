@@ -1,36 +1,37 @@
 # Toolchain
 
-the user's requirements workflow and repository-work guardrail. It turns grounded
-stakeholder evidence into requirements, action items, a business-facing Product
-Requirements Document, a Product Design specification
-with applicable system and data views, and a human-validation
-agenda without turning those artifacts into implementation authorization. For
-separately authorized production work, it also enforces the user's Sentry Logs
-observability invariant and gates delivery on running
-the final candidate through every changed real entry point on an appropriate
-target surface. It creates temporary
-remote-backed clones, keeps disposable task output inside those clones whenever
-possible, owns every task-spawned process through verified shutdown, and removes
-the complete task footprint after the work is safely published. It also owns the
-standing eligibility rules for storage and memory cleanup recommendations.
+Toolchain maintains requirements as authored natural-language source and guards
+separately authorized repository work. Its briefs express business initiatives,
+product capabilities, software systems, and implementation plans as distinct
+questions in a consistent format. Conversations and evidence develop that source;
+internal revisions preserve dependencies and actual stakeholder agreements.
+
+It also enforces the user's production observability and target-surface delivery
+contracts, isolates repository changes in temporary remote-backed clones, owns
+task-created artifacts and processes through cleanup, and defines eligibility
+for storage and memory cleanup recommendations.
 
 ## Skills
 
-- `elicitation` obtains complete, attributable evidence by composing the
-  plugin that owns its source.
-- `analysis` writes `requirements.md` and `action-items.md`, then iterates with
-  the user over conflicts, ambiguity, and questionable readings.
-- `prd` turns settled evidence into a concise Product Requirements Document
-  with six fixed business-facing sections: Problem, Objectives, Business
-  Requirements, Scope, Constraints and Assumptions, and Open Decisions and
-  Sign-off. It preserves open decisions and excludes detailed design and
-  implementation mechanics.
-- `specification` composes Product Design over settled requirements, then adds
-  architecture or conceptual entity-relationship views only when the proposed
-  change materially benefits from them, presenting one approval-gated artifact
-  checkpoint at a time; that completed outcome is the specification.
-- `validation` prepares `validation-agenda.md` for a boss or other authoritative
-  stakeholder and routes resulting evidence back through the workflow.
+- `brief` authors a bold title, purpose paragraph, and flat ordered claims with
+  visible subordinate glosses. It owns its independent style, audience language,
+  and semantic icon. Its requirements-library contract covers multi-organization
+  initiatives, capabilities and systems with many-to-many relationships,
+  applicability, internal snapshots and dependency review, source references,
+  and document-level stakeholder sign-off.
+- `elicitation` develops requirements knowledge iteratively through conversation,
+  documents, observations, existing software, and source-owning plugins.
+- `analysis` interprets durable requirements and separate owner-attributed
+  one-time obligations, revising the current brief through consequential questions.
+  The compact two-file extraction remains available when explicitly requested.
+- `prd` produces a product agreement through Brief by default. The formal
+  six-section PRD remains available when that artifact is explicitly requested.
+- `specification` develops product and software briefs and adds Product Design,
+  architecture, or conceptual entity-relationship views when they materially
+  clarify behavior. Applicable design artifacts retain their review checkpoints.
+- `validation` prepares and reconciles direct stakeholder conversations, recording
+  evidenced outcomes against internal revisions and updating affected pending
+  sign-off tags. It does not send automatic review requests or calculate votes.
 - `engineering-invariants` audits and enforces privacy-conscious structured Sentry
   Logs operational observability during separately
   authorized implementation, review, and shipping. These are standing engineering
@@ -71,7 +72,8 @@ messages and attachments, Notes owns Apple call recordings, and Voice Memos
 owns Voice Memo identity, audio, transcription, provenance, and event state.
 Supplied Zoom artifacts are handled by the installed document or media
 capability that owns their format. Elicitation composes those capabilities and
-checks that their evidence is ready for analysis.
+grounds the relevant evidence during iterative drafting. A source registry holds
+references; original elicitation material remains in its owning system.
 
 Sentry owns its platform-specific SDK, Logs dataset, and verification mechanics.
 Toolchain owns the non-optional engineering gate and composes those mechanisms.
@@ -84,12 +86,15 @@ the cleanup eligibility decision over those measurements.
 
 ## Boundary
 
-Toolchain owns understanding, agreement, repository isolation, resource hygiene,
+Toolchain owns Brief (moved from `writing:brief`), understanding, agreement,
+repository isolation, resource hygiene,
 target-surface delivery verification, and the user's standing production
 engineering invariants. It does not authorize
 issue tracking, task creation, coding-agent dispatch, implementation, tests,
-code review, merging, release, or deployment. A specification remains design
-work until the user separately authorizes implementation. Isolated Product Design
+code review, merging, release, or deployment. A specification remains requirements and design
+work until the user separately authorizes implementation. Existing user
+authorization persists across stage boundaries; applying a skill does not require
+a redundant approval. Isolated Product Design
 artifacts and prototypes remain specification work rather than product
 implementation. Repository isolation, delivery verification, and engineering
 invariants constrain separately authorized work; they never authorize that work

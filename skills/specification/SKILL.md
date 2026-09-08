@@ -1,24 +1,39 @@
 ---
 name: specification
-description: Use when settled requirements must become a product specification through approval-gated Product Design and, when useful, architecture and conceptual entity-relationship checkpoints, grounded in the current product and repository without implementing production code.
+description: Specify product or software requirements as authored briefs, adding Product Design and system or conceptual data views when they clarify consequential behavior without implementing production code.
 ---
 
 # Requirements Specification
 
-Use the installed Product Design plugin as the primary specification workflow.
-Give it the settled requirements and action items, their source pointers,
-applicable product and repository instructions, and the current product. The
-completed Product Design outcome together with any applicable system and data
-views in the conversation is the specification. Do not create or save a
-separate `specification.md` unless the user explicitly asks for a file copy. Before
-treating the outcome as complete, explicitly account for every settled
-requirement and identify any remaining material decision.
+Develop the product and software detail needed to make the grounded agreement
+actionable. Use `toolchain:brief` and its
+[requirements-library contract](../brief/references/requirements-library.md).
+Product briefs describe capabilities and user-visible variations; software
+briefs describe systems, modules, technical constraints, and how they realize
+those capabilities. Preserve the many-to-many relationships, shared behavior,
+tenant-specific applicability, and real deployments or forks. Do not collapse
+these questions into a screen design or an implementation backlog.
 
-Run the specification as an iterative, approval-gated sequence of artifact
-checkpoints:
+Read the applicable upstream brief revisions, current product and repository,
+source references, and settled decisions. Account for every settled requirement,
+including nonvisual and backend behavior. Keep unresolved material meaning
+beside its clause. A requested software brief is itself an authored artifact;
+do not force a separate `specification.md` or design prototype for every change.
 
-1. Present the completed Product Design outcome and stop for the user's review.
-2. After Product Design is approved, present the architecture view when it is
+Use the installed Product Design plugin as the primary visual specification
+workflow when product interactions, appearance, or experience need design, or
+when the user requests that workflow. Give it the settled requirements and
+applicable source and repository context. The completed Product Design outcome
+and any applicable system and data views supplement the same requirements;
+they do not silently replace or rewrite an accepted brief. For an explicitly
+requested design-only specification, that completed outcome is the specification.
+
+When these design artifacts are needed, use an iterative, approval-gated sequence
+of artifact checkpoints:
+
+1. Present the completed Product Design outcome when applicable and stop for the
+   user's review.
+2. After Product Design is approved or found inapplicable, present the architecture view when it is
    applicable, then stop for review.
 3. After the architecture view is approved or found inapplicable, present the
    conceptual entity-relationship view when it is applicable, then stop for
@@ -27,7 +42,8 @@ checkpoints:
 Present only the current checkpoint. Do not preview, generate, or bundle a
 later artifact while the current one is unresolved, even when all inputs are
 already settled. If the user requests changes, revise and re-present only that
-checkpoint. Continue only after he explicitly approves it. When a conditional
+checkpoint. Continue after the user explicitly approves that checkpoint, including an
+approval already given in the current request; do not demand it twice. When a conditional
 view is not applicable, omit it and move to the next applicable checkpoint.
 After the last applicable artifact is approved, perform the completion check;
 if it exposes a material gap, reopen the affected checkpoint instead of adding
@@ -35,8 +51,7 @@ a separate specification section.
 
 Treat every settled requirement, including nonvisual and backend behavior, as a
 hard constraint in the Product Design brief. Let Product Design route among its
-own workflows and determine which design artifacts are useful. Do not add an
-independent technical-planning phase. Resolve cheap, reversible product details
+own workflows and determine which design artifacts are useful. Keep implementation planning downstream and separately authorized. Resolve cheap, reversible product details
 from current truth and ask only about choices that materially change the
 outcome.
 
@@ -74,5 +89,11 @@ These are views of the same specification, not a separate phase.
 Product Design may create its normal isolated design artifacts and prototypes.
 It does not authorize edits to product source, issues, external messages,
 deployment, or other implementation side effects. If Product Design is
-unavailable in the current client, report that boundary instead of silently
-substituting another specification workflow.
+needed but unavailable in the current client, report that boundary instead of
+silently substituting a different visual workflow. It does not block independent
+requirements drafting that is already authorized.
+
+When an upstream brief changes, assess affected software requirements and design
+views at the relevant applicability. Record whether each remains valid or needs
+revision before advancing its internal dependency revision. Reopen only affected
+checkpoints and sign-offs. A requirements revision is not a software deployment.

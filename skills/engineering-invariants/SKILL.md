@@ -7,8 +7,11 @@ description: "Enforce the user's standing production engineering invariant durin
 
 Apply these as standing constraints on production engineering work. They do not
 come from stakeholder evidence and are not product requirements. Never add them
-to `requirements.md`, `action-items.md`, a Product Design specification, or a
-validation agenda, and never ask a stakeholder to approve them.
+to business, product, or software briefs, `requirements.md`, `action-items.md`,
+a Product Design specification, or a validation agenda, and never ask a
+stakeholder to approve them. Implementation briefs may reference the applicable
+engineering gate as a delivery constraint without presenting it as stakeholder
+intent.
 
 This skill does not authorize implementation, provider changes, release, or
 deployment. Once the user has separately authorized implementation or shipping of

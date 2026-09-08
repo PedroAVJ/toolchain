@@ -1,4 +1,4 @@
 interface:
   display_name: "Requirements Analysis"
-  short_description: "Extract requirements, action items, and conflicts"
-  default_prompt: "Use $analysis to produce Requirements and Action Items from this evidence and iterate with me."
+  short_description: "Interpret evidence and iterate the current requirements"
+  default_prompt: "Use $analysis to interpret this evidence, separate one-time obligations, and revise the requirements with me."

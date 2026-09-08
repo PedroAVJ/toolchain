@@ -1,4 +1,4 @@
 interface:
   display_name: "Requirements Elicitation"
-  short_description: "Ground stakeholder evidence through its source owner"
-  default_prompt: "Use $elicitation to prepare this exact source as grounded requirements evidence."
+  short_description: "Develop grounded requirements through conversation"
+  default_prompt: "Use $elicitation to develop the knowledge behind this brief and ask consequential questions."

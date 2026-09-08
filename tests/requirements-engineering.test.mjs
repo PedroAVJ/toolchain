@@ -14,18 +14,18 @@ async function json(...parts) {
   return JSON.parse(await read(...parts));
 }
 
-test("Toolchain 0.4.8 ships matching manifests and skills", async () => {
+test("Toolchain 0.5.0 ships matching manifests and skills", async () => {
   const codex = await json(".codex-plugin", "plugin.json");
   const claude = await json(".claude-plugin", "plugin.json");
   assert.equal(codex.name, "toolchain");
-  assert.equal(codex.version, "0.4.8");
+  assert.equal(codex.version, "0.5.0");
   assert.equal(claude.version, codex.version);
   assert.equal(claude.description, codex.description);
   assert.deepEqual(claude.keywords, codex.keywords);
   assert.equal(claude.dependencies, undefined);
   assert.deepEqual(
     (await readdir(join(plugin, "skills"))).sort(),
-    ["analysis", "delivery-verification", "elicitation", "engineering-invariants", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"],
+    ["analysis", "brief", "delivery-verification", "elicitation", "engineering-invariants", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"],
   );
 });
 
@@ -186,78 +186,6 @@ test("elicitation composes source owners instead of duplicating acquisition", as
   }
   assert.doesNotMatch(skill, /google-drive:/i);
   assert.match(skill, /source plugin retains ownership/i);
-});
-
-test("analysis remains a two-file conversational interpretation", async () => {
-  const skill = await read("skills", "analysis", "SKILL.md");
-  assert.match(skill, /requirements\.md/);
-  assert.match(skill, /action-items\.md/);
-  assert.match(skill, /conflicts.*ambiguity|ambiguity.*conflicts/is);
-  assert.match(skill, /same task/i);
-  assert.doesNotMatch(skill, /Linear/i);
-});
-
-test("analysis artifacts contain only their prescribed headings and lists", async () => {
-  const skill = await read("skills", "analysis", "SKILL.md");
-  assert.match(skill, /Each artifact must contain only/i);
-  assert.match(skill, /Do not add a document title/i);
-  assert.match(skill, /first line of `requirements\.md` must be `## Requirements`/i);
-  assert.match(skill, /first line of `action-items\.md` must be `## Action Items`/i);
-  assert.match(skill, /conflicts and ambiguity.*conversation.*not.*artifact/is);
-});
-
-test("prd is the six-section business-facing agreement artifact", async () => {
-  const skill = await read("skills", "prd", "SKILL.md");
-  assert.match(skill, /named a \*\*Product Requirements Document \(PRD\)\*\*/i);
-  assert.match(skill, /deliberately lean and business-facing/i);
-  assert.match(skill, /after `toolchain:analysis`/i);
-  assert.match(skill, /before `toolchain:specification`/i);
-  const sections = [
-    "Problem",
-    "Objectives",
-    "Business Requirements",
-    "Scope",
-    "Constraints and Assumptions",
-    "Open Decisions and Sign-off",
-  ];
-  let cursor = -1;
-  for (const section of sections) {
-    const next = skill.indexOf(`**${section}**`, cursor + 1);
-    assert.ok(next > cursor, `${section} is missing or out of order`);
-    cursor = next;
-  }
-  assert.match(skill, /no other\s+top-level section may be added/is);
-  assert.match(skill, /Target one readily reviewable page when the evidence fits/i);
-  assert.match(skill, /Do not omit a real\s+requirement merely to meet a page count/is);
-  assert.match(skill, /Do not resolve conflicts by guessing/i);
-  assert.match(skill, /Never mark the PRD approved without exact stakeholder evidence/i);
-  assert.match(skill, /does not authorize implementation/i);
-  assert.match(skill, /native Google Doc.*document-owning\s+capability/is);
-});
-
-test("the completed Product Design outcome is the specification", async () => {
-  const skill = await read("skills", "specification", "SKILL.md");
-  assert.match(skill, /installed Product Design plugin as the (?:primary )?specification workflow/i);
-  assert.match(skill, /completed\s+Product Design outcome.*is the specification/is);
-  assert.match(skill, /account for every\s+settled\s+requirement/is);
-  assert.match(skill, /including nonvisual and backend behavior.*hard constraint/is);
-  assert.match(skill, /Do not create\s+or save a\s+separate `specification\.md`.*unless the user explicitly/is);
-  assert.match(skill, /does not authorize edits to product source/is);
-  assert.match(skill, /If Product Design is\s+unavailable.*report that boundary/is);
-  assert.doesNotMatch(skill, /Plan mode/i);
-});
-
-test("specification presents one approval-gated artifact checkpoint at a time", async () => {
-  const skill = await read("skills", "specification", "SKILL.md");
-  assert.match(skill, /iterative, approval-gated sequence of artifact\s+checkpoints/is);
-  assert.match(skill, /Product Design outcome and stop for the user's review/is);
-  assert.match(skill, /After Product Design is approved.*architecture view/is);
-  assert.match(skill, /After the architecture view is approved or found inapplicable.*conceptual entity-relationship view/is);
-  assert.match(skill, /Present only the current checkpoint/is);
-  assert.match(skill, /Do not preview, generate, or bundle a\s+later artifact/is);
-  assert.match(skill, /revise and re-present only that\s+checkpoint/is);
-  assert.match(skill, /Continue only after he explicitly approves it/is);
-  assert.match(skill, /After the last applicable artifact is approved.*completion check/is);
 });
 
 test("specification adds architecture and conceptual ER views only when useful", async () => {
