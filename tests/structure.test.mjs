@@ -7,7 +7,7 @@ import test from "node:test";
 const root = fileURLToPath(new URL("..", import.meta.url));
 const expected = {
   "name": "toolchain",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "url": "https://github.com/PedroAVJ/toolchain",
   "dependencies": []
 };

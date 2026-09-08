@@ -5,7 +5,7 @@ description: Decide whether files, worktrees, applications, or running process t
 
 # Resource Hygiene
 
-Own cleanup **eligibility**. The MacBook plugin and other domain tools own live
+Own cleanup **eligibility**. The macOS plugin and other domain tools own live
 measurement; this skill decides whether a measured item may appear in the
 recommendation at all.
 

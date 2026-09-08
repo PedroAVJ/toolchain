@@ -14,11 +14,11 @@ async function json(...parts) {
   return JSON.parse(await read(...parts));
 }
 
-test("Toolchain 0.4.7 ships matching manifests and skills", async () => {
+test("Toolchain 0.4.8 ships matching manifests and skills", async () => {
   const codex = await json(".codex-plugin", "plugin.json");
   const claude = await json(".claude-plugin", "plugin.json");
   assert.equal(codex.name, "toolchain");
-  assert.equal(codex.version, "0.4.7");
+  assert.equal(codex.version, "0.4.8");
   assert.equal(claude.version, codex.version);
   assert.equal(claude.description, codex.description);
   assert.deepEqual(claude.keywords, codex.keywords);
@@ -126,7 +126,7 @@ test("repository writes use remote-backed ephemeral clones", async () => {
 
 test("resource hygiene owns cleanup eligibility without touching active work", async () => {
   const skill = await read("skills", "resource-hygiene", "SKILL.md");
-  assert.match(skill, /MacBook plugin and other domain tools own live\s+measurement/i);
+  assert.match(skill, /macOS plugin and other domain tools own live\s+measurement/i);
   assert.match(skill, /all of these are true/i);
   assert.match(skill, /active worktree is active work too/i);
   assert.match(skill, /Git-ignored\s+status, regenerability.*absence of an\s+open file handle does not make it disposable/is);

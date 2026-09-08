@@ -1,6 +1,6 @@
 {
   "name": "toolchain",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Turn grounded evidence into requirements and business-facing PRDs while enforcing target-surface delivery verification, production invariants, resource hygiene, and isolated repository work.",
   "author": {
     "name": "PedroAVJ",

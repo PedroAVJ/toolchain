@@ -1,6 +1,6 @@
 {
   "name": "toolchain",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Turn grounded evidence into requirements and business-facing PRDs while enforcing target-surface delivery verification, production invariants, resource hygiene, and isolated repository work.",
   "author": {
     "name": "PedroAVJ",
@@ -32,7 +32,7 @@
     "shortDescription": "Requirements, PRDs, delivery gates, and safe repository work",
     "longDescription": "Toolchain composes source-owning plugins to ground stakeholder evidence, analyzes it into Requirements and Action Items, creates six-section business-facing Product Requirements Documents, produces approval-gated specifications and validation agendas, owns storage and process cleanup eligibility, and applies the user's standing target-surface delivery gate plus Sentry Logs observability invariant to separately authorized production work. It also scopes repository writes, disposable artifacts, and task-spawned processes to removable remote-backed clones. These constraints never authorize implementation, deletion, process interruption, or deployment by themselves.",
     "developerName": "PedroAVJ",
-    "category": "System",
+    "category": "Developer Tools",
     "capabilities": [
       "Interactive",
       "Read",
