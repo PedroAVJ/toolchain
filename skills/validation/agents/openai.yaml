@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirements Validation"
+  short_description: "Prepare and reconcile stakeholder validation"
+  default_prompt: "Use $validation to prepare a focused agenda for validating these requirements with the stakeholder."

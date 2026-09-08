@@ -1,0 +1,4 @@
+interface:
+  display_name: "Isolate Repository Work"
+  short_description: "Scope repository work, processes, and artifacts"
+  default_prompt: "Use $isolate-repository-work to keep repository changes and disposable task output inside one removable task clone, reuse one clone-local native build cache, and own every task-spawned process through verified shutdown."

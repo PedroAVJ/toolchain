@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Invariants"
+  short_description: "Enforce the Sentry observability baseline"
+  default_prompt: "Use $engineering-invariants to audit and enforce Sentry Logs observability for this production change."

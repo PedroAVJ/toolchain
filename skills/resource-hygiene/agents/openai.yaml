@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resource Hygiene"
+  short_description: "Exclude active work, caches, and insignificant processes"
+  default_prompt: "Use $resource-hygiene to identify only proven, material cleanup candidates without touching active work or caches."
