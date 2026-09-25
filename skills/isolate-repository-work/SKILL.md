@@ -67,7 +67,7 @@ not authorize implementation, release, deployment, or target access by itself.
 For separately authorized implementation, review, or shipping of a production
 application or service, apply `toolchain:engineering-invariants` after resolving
 the repository and before deciding the complete implementation scope. Keep its
-Sentry Logs observability gate open through deployed
+observability gate open through deployed
 verification. A missing integration is part of the authorized production work,
 not an optional follow-up.
 

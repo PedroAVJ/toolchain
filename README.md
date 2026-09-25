@@ -32,8 +32,8 @@ for storage and memory cleanup recommendations.
 - `validation` prepares and reconciles direct stakeholder conversations, recording
   evidenced outcomes against internal revisions and updating affected pending
   sign-off tags. It does not send automatic review requests or calculate votes.
-- `engineering-invariants` audits and enforces privacy-conscious structured Sentry
-  Logs operational observability during separately
+- `engineering-invariants` audits and enforces privacy-conscious structured operational
+  logs in the observability provider the project architecture declares during separately
   authorized implementation, review, and shipping. These are standing engineering
   constraints, not stakeholder requirements or specification content.
 - `delivery-verification` requires the final candidate to pass every materially
@@ -75,7 +75,8 @@ capability that owns their format. Elicitation composes those capabilities and
 grounds the relevant evidence during iterative drafting. A source registry holds
 references; original elicitation material remains in its owning system.
 
-Sentry owns its platform-specific SDK, Logs dataset, and verification mechanics.
+The architecture declares the observability provider; that provider (for example
+Sentry) owns its platform-specific SDK, logs dataset, and verification mechanics.
 Toolchain owns the non-optional engineering gate and composes those mechanisms.
 Each product and platform owns its runnable target surface. Toolchain owns the
 non-optional exact-entry-point delivery gate and the evidence required to close

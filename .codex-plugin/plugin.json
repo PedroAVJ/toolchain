@@ -1,6 +1,6 @@
 {
   "name": "toolchain",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "author": {
     "name": "PedroAVJ",
@@ -48,7 +48,7 @@
       "Develop the product or software requirements for this capability",
       "Prepare stakeholder review and reconcile the affected sign-offs",
       "Verify every changed path through its real target-surface entry point before shipping",
-      "Enforce the Sentry observability invariant for this production change",
+      "Enforce the observability invariant for this production change",
       "Identify only legitimate storage or process cleanup candidates",
       "Isolate this repository work before making changes"
     ],
