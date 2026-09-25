@@ -6,8 +6,7 @@ product capabilities, software systems, and implementation plans as distinct
 questions in a consistent format. Conversations and evidence develop that source;
 internal revisions preserve dependencies and actual stakeholder agreements.
 
-It also enforces the user's production observability and target-surface delivery
-contracts, isolates repository changes in temporary remote-backed clones, owns
+It also enforces the user's target-surface delivery contract, isolates repository changes in temporary remote-backed clones, owns
 task-created artifacts and processes through cleanup, and defines eligibility
 for storage and memory cleanup recommendations.
 
@@ -32,10 +31,6 @@ for storage and memory cleanup recommendations.
 - `validation` prepares and reconciles direct stakeholder conversations, recording
   evidenced outcomes against internal revisions and updating affected pending
   sign-off tags. It does not send automatic review requests or calculate votes.
-- `engineering-invariants` audits and enforces privacy-conscious structured operational
-  logs in the observability provider the project architecture declares during separately
-  authorized implementation, review, and shipping. These are standing engineering
-  constraints, not stakeholder requirements or specification content.
 - `delivery-verification` requires the final candidate to pass every materially
   changed path through its actual user, system, integration, or runtime entry
   point on a named controllable target before merge, deployment, or shipped
@@ -75,9 +70,6 @@ capability that owns their format. Elicitation composes those capabilities and
 grounds the relevant evidence during iterative drafting. A source registry holds
 references; original elicitation material remains in its owning system.
 
-The architecture declares the observability provider; that provider (for example
-Sentry) owns its platform-specific SDK, logs dataset, and verification mechanics.
-Toolchain owns the non-optional engineering gate and composes those mechanisms.
 Each product and platform owns its runnable target surface. Toolchain owns the
 non-optional exact-entry-point delivery gate and the evidence required to close
 it; physical-device acceptance remains a separate claim when hardware behavior
@@ -89,8 +81,7 @@ the cleanup eligibility decision over those measurements.
 
 Toolchain owns Brief (moved from `writing:brief`), understanding, agreement,
 repository isolation, resource hygiene,
-target-surface delivery verification, and the user's standing production
-engineering invariants. It does not authorize
+and target-surface delivery verification. It does not authorize
 issue tracking, task creation, coding-agent dispatch, implementation, tests,
 code review, merging, release, or deployment. A specification remains requirements and design
 work until the user separately authorizes implementation. Existing user

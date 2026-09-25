@@ -1,4 +1,0 @@
-interface:
-  display_name: "Engineering Invariants"
-  short_description: "Enforce the declared observability baseline"
-  default_prompt: "Use $engineering-invariants to audit and enforce structured-log observability in the architecture-declared provider for this production change."

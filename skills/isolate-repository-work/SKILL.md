@@ -62,23 +62,6 @@ changed path cannot be exercised on an appropriate controllable target, stop
 before merge or deployment and do not call the work shipped. This routing does
 not authorize implementation, release, deployment, or target access by itself.
 
-## Apply production engineering invariants
-
-For separately authorized implementation, review, or shipping of a production
-application or service, apply `toolchain:engineering-invariants` after resolving
-the repository and before deciding the complete implementation scope. Keep its
-observability gate open through deployed
-verification. A missing integration is part of the authorized production work,
-not an optional follow-up.
-
-These invariants are unrelated to stakeholder requirements and do not belong in
-requirements, action-item, specification, or validation artifacts. This routing
-does not authorize implementation or deployment by itself. Skip it for pure
-requirements artifacts, documentation-only changes, local experiments, tests, and
-plugin-only, skill-only, or developer-only tooling that does not ship a production
-runtime. Repositories that bundle plugins with production apps or services are not
-exempt.
-
 ## Keep disposable artifacts inside the clone
 
 Repository isolation owns generated work as well as tracked source. Keep local

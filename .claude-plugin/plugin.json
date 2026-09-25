@@ -1,6 +1,6 @@
 {
   "name": "toolchain",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "author": {
     "name": "PedroAVJ",
@@ -19,9 +19,7 @@
     "delivery-verification",
     "target-surface-testing",
     "stakeholders",
-    "engineering-invariants",
     "sentry",
-    "observability",
     "ephemeral-clones",
     "repository-safety",
     "resource-hygiene",
