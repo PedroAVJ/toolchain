@@ -74,8 +74,9 @@ Each product and platform owns its runnable target surface. Toolchain owns the
 non-optional exact-entry-point delivery gate and the evidence required to close
 it; physical-device acceptance remains a separate claim when hardware behavior
 is involved.
-The macOS plugin owns live macOS pressure, process, and APFS measurement. Toolchain owns
-the cleanup eligibility decision over those measurements.
+Toolchain's `resource-hygiene` skill measures live macOS pressure, processes, and APFS
+headroom with read-only built-in commands, then owns the cleanup eligibility decision over
+those measurements.
 
 ## Boundary
 

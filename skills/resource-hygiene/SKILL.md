@@ -5,9 +5,9 @@ description: Decide whether files, worktrees, applications, or running process t
 
 # Resource Hygiene
 
-Own cleanup **eligibility**. The macOS plugin and other domain tools own live
-measurement; this skill decides whether a measured item may appear in the
-recommendation at all.
+Own cleanup **eligibility**. Live measurement comes first and stays read-only;
+this skill decides whether a measured item may appear in the recommendation at
+all. Domain tools may supply measurements for the resources they own.
 
 This skill does not authorize deletion, quitting, restarting, or stopping.
 Recommendations remain read-only until the user authorizes the exact action.
@@ -44,6 +44,32 @@ For an explicitly authorized exact disposable target, remove it permanently and
 directly. If ownership, relevance, publication, or authorization is uncertain,
 preserve the item in place and report the uncertainty.
 
+## Live macOS measurement
+
+Measure the current Mac directly with read-only built-in commands. Never reuse
+an earlier snapshot as current evidence.
+
+```bash
+sysctl -n kern.memorystatus_vm_pressure_level   # 0 normal, 1 warning, 2 urgent, 3 critical, 4 jetsam approaching
+sysctl -n hw.memsize
+sysctl vm.swapusage
+vm_stat
+ps -axo pid=,ppid=,etime=,pcpu=,pmem=,rss=,command=
+df -Pk /System/Volumes/Data /System/Volumes/VM
+diskutil apfs list | grep -E "Capacity (In Use|Not Allocated)"
+```
+
+The kernel pressure level establishes urgency; it is not an optimization score
+or a stopping target. Never diagnose a leak from one snapshot. Swap shares the
+APFS container, so low disk headroom raises memory risk without replacing a
+RAM measurement.
+
+Unless the user chooses another threshold, storage plans target exactly 20%
+free capacity of the data volume with no safety buffer:
+`shortfall = max(0, capacity * 20% - available)`. At or above the target,
+report that no storage removal is needed. Measure only exact targets that
+already passed the ownership and relevance gates, with `du -sk` and `lsof +D`.
+
 ## Running processes
 
 Inspect actual running processes and aggregate the complete owner tree. A
@@ -62,8 +88,8 @@ authorization.
 
 ## Storage
 
-Use the owning measurement capability to establish current free space, the
-selected target, and the exact shortfall. Then list only non-cache, inactive,
+Use the live measurement above to establish current free space, the selected
+target, and the exact shortfall. Then list only non-cache, inactive,
 proven-disposable targets that pass every candidate gate. Active worktrees and
 anything below them are excluded from general storage recommendations.
 

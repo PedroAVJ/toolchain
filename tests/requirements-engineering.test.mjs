@@ -14,18 +14,18 @@ async function json(...parts) {
   return JSON.parse(await read(...parts));
 }
 
-test("Toolchain 0.5.0 ships matching manifests and skills", async () => {
+test("Toolchain 0.6.1 ships matching manifests and skills", async () => {
   const codex = await json(".codex-plugin", "plugin.json");
   const claude = await json(".claude-plugin", "plugin.json");
   assert.equal(codex.name, "toolchain");
-  assert.equal(codex.version, "0.5.0");
+  assert.equal(codex.version, "0.6.1");
   assert.equal(claude.version, codex.version);
   assert.equal(claude.description, codex.description);
   assert.deepEqual(claude.keywords, codex.keywords);
   assert.equal(claude.dependencies, undefined);
   assert.deepEqual(
     (await readdir(join(plugin, "skills"))).sort(),
-    ["analysis", "brief", "delivery-verification", "elicitation", "engineering-invariants", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"],
+    ["analysis", "brief", "delivery-verification", "elicitation", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"],
   );
 });
 
@@ -66,9 +66,7 @@ test("repository writes use remote-backed ephemeral clones", async () => {
   assert.match(skill, /one separate ephemeral clone for each repository/i);
   assert.match(skill, /apply `toolchain:resource-hygiene`/i);
   assert.match(skill, /never general host-cleanup candidates/i);
-  assert.match(skill, /apply `toolchain:engineering-invariants`/i);
-  assert.match(skill, /Sentry Logs observability gate/is);
-  assert.match(skill, /unrelated to stakeholder requirements/i);
+  assert.doesNotMatch(skill, /engineering-invariants/i);
   assert.match(skill, /active\s+task clone as the filesystem ownership boundary/i);
   assert.match(skill, /build and test output.*logs.*diagnostic\s+exports.*temporary files/is);
   assert.match(skill, /project-local ignored path.*`.git\/info\/exclude`/is);
@@ -126,7 +124,10 @@ test("repository writes use remote-backed ephemeral clones", async () => {
 
 test("resource hygiene owns cleanup eligibility without touching active work", async () => {
   const skill = await read("skills", "resource-hygiene", "SKILL.md");
-  assert.match(skill, /macOS plugin and other domain tools own live\s+measurement/i);
+  assert.match(skill, /Live measurement comes first and stays read-only/i);
+  assert.match(skill, /kern\.memorystatus_vm_pressure_level/);
+  assert.match(skill, /exactly 20%\s+free capacity/i);
+  assert.doesNotMatch(skill, /macbook|macOS plugin/i);
   assert.match(skill, /all of these are true/i);
   assert.match(skill, /active worktree is active work too/i);
   assert.match(skill, /Git-ignored\s+status, regenerability.*absence of an\s+open file handle does not make it disposable/is);
@@ -139,21 +140,6 @@ test("resource hygiene owns cleanup eligibility without touching active work", a
   assert.match(skill, /target.*never relaxes the gates/is);
   assert.match(skill, /Storage candidates: none proven/);
   assert.match(skill, /Memory\/process candidates: none proven/);
-});
-
-test("production engineering invariants require Sentry Logs without mandating product analytics", async () => {
-  const skill = await read("skills", "engineering-invariants", "SKILL.md");
-  assert.match(skill, /standing constraints on production engineering work/i);
-  assert.match(skill, /do not\s+come from stakeholder evidence and are not product requirements/i);
-  assert.match(skill, /Sentry operational observability/i);
-  assert.match(skill, /repository that bundles a plugin with an app or service is not exempt/i);
-  assert.doesNotMatch(skill, /product analytics/i);
-  assert.match(skill, /structured Sentry Logs must be explicitly enabled/i);
-  assert.match(skill, /`captureException` and `captureMessage` do not create Sentry Logs/i);
-  assert.match(skill, /meaningful state transitions and terminal outcomes/i);
-  assert.match(skill, /query\s+the Sentry \*\*Logs\*\* dataset/is);
-  assert.match(skill, /Checking Issues or Events is not log verification/i);
-  assert.match(skill, /Do not silently defer the invariant or call the production release fully accepted/i);
 });
 
 test("stakeholder workflow artifacts do not absorb engineering invariants", async () => {
@@ -216,7 +202,7 @@ test("Toolchain contains no Symphony or Linear lifecycle", async () => {
   const files = [
     await read("README.md"),
     ...await Promise.all(
-      ["elicitation", "analysis", "delivery-verification", "engineering-invariants", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"].map((name) =>
+      ["elicitation", "analysis", "delivery-verification", "isolate-repository-work", "prd", "resource-hygiene", "specification", "validation"].map((name) =>
         read("skills", name, "SKILL.md"),
       ),
     ),
