@@ -18,7 +18,7 @@ test("Toolchain 0.6.1 ships matching manifests and skills", async () => {
   const codex = await json(".codex-plugin", "plugin.json");
   const claude = await json(".claude-plugin", "plugin.json");
   assert.equal(codex.name, "toolchain");
-  assert.equal(codex.version, "0.6.1");
+  assert.equal(codex.version, "0.6.2");
   assert.equal(claude.version, codex.version);
   assert.equal(claude.description, codex.description);
   assert.deepEqual(claude.keywords, codex.keywords);
@@ -165,8 +165,8 @@ test("elicitation composes source owners instead of duplicating acquisition", as
   for (const owner of [
     "whatsapp:whatsapp",
     "gmail:gmail",
-    "notes:process-recorded-call",
-    "voice-memos:voice-memos",
+    "macos:process-recorded-call",
+    "macos:voice-memos",
   ]) {
     assert.match(skill, new RegExp(owner, "i"));
   }

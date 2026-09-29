@@ -1,6 +1,6 @@
 {
   "name": "toolchain",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "author": {
     "name": "PedroAVJ",

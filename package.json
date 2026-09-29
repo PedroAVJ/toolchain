@@ -1,6 +1,6 @@
 {
   "name": "@pedroavj/toolchain",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "private": true,
   "description": "Author grounded natural-language briefs and manage requirements agreement, dependencies, and delivery alongside safe repository work.",
   "license": "MIT",

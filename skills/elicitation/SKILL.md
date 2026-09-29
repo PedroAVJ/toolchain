@@ -25,8 +25,8 @@ Use the installed skill that owns the source:
 | WhatsApp messages, exchanges, media, or voice notes | `whatsapp:whatsapp` |
 | Gmail message thread or attachment | `gmail:gmail` or `gmail:gmail-cli` |
 | Zoom recording, transcript, chat export, or screenshot supplied directly | The installed document or media capability that owns its format |
-| Apple phone or FaceTime call recording | `notes:process-recorded-call`, using `notes:notes` for source access |
-| Apple Voice Memo | `voice-memos:voice-memos` |
+| Apple phone or FaceTime call recording | `macos:process-recorded-call`, using `macos:notes` for source access |
+| Apple Voice Memo | `macos:voice-memos` |
 | Exact transcript, document, audio, video, or screenshot supplied directly | The installed source, document, or media capability that owns its format |
 
 A Zoom notification or invitation is not the recording, transcript, or chat
