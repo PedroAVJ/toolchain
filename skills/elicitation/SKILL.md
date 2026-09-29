@@ -23,7 +23,7 @@ Use the installed skill that owns the source:
 | Evidence source | Owning capability |
 | --- | --- |
 | WhatsApp messages, exchanges, media, or voice notes | `whatsapp:whatsapp` |
-| Gmail message thread or attachment | `gmail:gmail` or `gmail:gmail-cli` |
+| Gmail message thread or attachment | `google-cloud:gmail` or `google-cloud:gmail-cli` |
 | Zoom recording, transcript, chat export, or screenshot supplied directly | The installed document or media capability that owns its format |
 | Apple phone or FaceTime call recording | `macos:process-recorded-call`, using `macos:notes` for source access |
 | Apple Voice Memo | `macos:voice-memos` |
