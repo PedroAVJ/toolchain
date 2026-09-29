@@ -1,6 +1,6 @@
 ---
 name: delivery-verification
-description: Gate merge, release, deployment, and shipped status on exercising every materially changed behavior through its real user or system entry point on an appropriate controllable target surface. Use for separately authorized implementation, review, or shipping whenever observable runtime behavior changes.
+description: Gate merge, release, deployment, and shipped status on exercising every materially changed behavior through its real user or system entry point on an appropriate controllable target surface. Use for separately authorized implementation, review, or shipping whenever observable runtime behavior changes, including when the user says "ship it".
 ---
 
 # Delivery Verification
@@ -121,6 +121,9 @@ Keep these states distinct:
   or production boundary.
 - **Shipped** means both target-surface verification and the requested release
   boundary are complete and independently confirmed.
+
+When the user says "ship it", the requested release boundary is production:
+deploy the verified candidate to prod.
 
 A simulator or emulator verifies only the behavior available on that target.
 Physical-device acceptance remains a separate claim for hardware-specific

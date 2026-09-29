@@ -18,7 +18,7 @@ test("Toolchain 0.6.1 ships matching manifests and skills", async () => {
   const codex = await json(".codex-plugin", "plugin.json");
   const claude = await json(".claude-plugin", "plugin.json");
   assert.equal(codex.name, "toolchain");
-  assert.equal(codex.version, "0.6.3");
+  assert.equal(codex.version, "0.6.4");
   assert.equal(claude.version, codex.version);
   assert.equal(claude.description, codex.description);
   assert.deepEqual(claude.keywords, codex.keywords);
